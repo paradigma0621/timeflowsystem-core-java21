@@ -1,0 +1,10 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: core-java21
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbc-url: jdbc:mysql://localhost:3306/mysqlDatabase
+    username: timeflow
+    password: 12345678
