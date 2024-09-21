@@ -1,13 +1,14 @@
 package com.paradigma0621.core.controller;
 
 import com.paradigma0621.core.dto.PersonDto;
-import com.paradigma0621.core.service.PersonService;
+import com.paradigma0621.core.service.person.PersonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static java.time.LocalDateTime.now;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
@@ -23,9 +24,8 @@ class PersonControllerTest {
 
     @Test
     void testGetPersonName() {
-        var personDto = new PersonDto(1L, "Oswaldo");
-        when(service.findById(anyLong())).thenReturn(personDto);
-        var expected = personDto.name();
+        var expected = new PersonDto(1L, "Oswaldo", now(), "1AB23", 1L, 1L, false);
+        when(service.findById(anyLong())).thenReturn(expected);
 
         var actual = controller.getJdbcPersonName(1L);
 

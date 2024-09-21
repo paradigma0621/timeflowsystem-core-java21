@@ -1,26 +1,20 @@
-package com.paradigma0621.core.repository.person.impl;
+package com.paradigma0621.core.repository.clocking.impl;
 
 
-import com.paradigma0621.core.dto.PersonDto;
 import com.paradigma0621.core.dto.QueryParameterDto;
-import com.paradigma0621.core.repository.person.PersonRepository;
+import com.paradigma0621.core.repository.clocking.ClockingRepository;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
-import static com.paradigma0621.core.repository.commons.SQLFields.*;
-
 @Repository
-public class PersonRepositoryImpl implements PersonRepository {
+public class ClockingRepositoryImpl implements ClockingRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public PersonRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public ClockingRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
-
+/*
     @Override
     public Optional<PersonDto> findPersonNameById(QueryParameterDto queryParameterDto) {
         return namedParameterJdbcTemplate.query(queryParameterDto.sql(), queryParameterDto.parameter(), result -> {
@@ -61,7 +55,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     public Optional<Long> findTotalPerson(QueryParameterDto queryParameterDto) {
         return Optional.of(namedParameterJdbcTemplate.queryForObject(queryParameterDto.sql(), queryParameterDto.parameter(), Long.class));
     }
-
+*/
     @Override
     public void saveOne(QueryParameterDto queryParameterDto) {
         namedParameterJdbcTemplate.update(queryParameterDto.sql(), queryParameterDto.parameter());
