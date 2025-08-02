@@ -1,11 +1,14 @@
 package com.paradigma0621.core.controller;
 
 import com.paradigma0621.core.dto.PersonDto;
+import com.paradigma0621.core.dto.ResponseDto;
+import com.paradigma0621.core.exception.BusinessException;
 import com.paradigma0621.core.service.person.PersonService;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,8 +23,7 @@ public class PersonController {
 
     @GetMapping(value = "/test")
     public String creating() {
-
-        System.out.println("logggg");
+        System.out.println("log");
         return "For frontend REACT PROJECT!!!";
 
     }
@@ -54,6 +56,26 @@ public class PersonController {
             }
         }
         return "Counted unitl: "+ countMax*countMax;
+    }
+
+    @GetMapping(value = "/business")
+    public void throwBusinessException() {
+        throw new BusinessException("This is a business exception");
+    }
+
+    @GetMapping(value = "/allResponseDto")
+    public ResponseEntity<ResponseDto<Page<PersonDto>>> getPersonsWithResponseDto(@PageableDefault(page = 0, size = 10)
+                                                                                  Pageable pageable) {
+
+        Page<PersonDto> result = personService.findAll(pageable);
+
+        ResponseDto<Page<PersonDto>> response = new ResponseDto<>(
+                200L,
+                "Request completed successfully.",
+                result
+        );
+
+        return ResponseEntity.ok(response);
     }
 
 }

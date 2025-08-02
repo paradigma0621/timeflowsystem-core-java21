@@ -31,6 +31,8 @@ dependencies {
 	testImplementation("org.mockito:mockito-core")
 	testImplementation("org.mockito:mockito-junit-jupiter")
 	implementation("org.springframework.data:spring-data-commons")
+	compileOnly("org.projectlombok:lombok:1.18.32")
+	annotationProcessor("org.projectlombok:lombok:1.18.32")
 }
 
 tasks.withType<Test> {
