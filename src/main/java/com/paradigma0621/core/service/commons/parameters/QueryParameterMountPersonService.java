@@ -11,8 +11,12 @@ import static com.paradigma0621.core.repository.person.sql.PersonSQLParts.*;
 @Service
 public class QueryParameterMountPersonService extends QueryParameterMountAbstract {
 
-    public QueryParameterDto mountFindPersonDto(Long personId) {
-        return applyFilterPersonId(personId, QUERY_ONE_PERSON);
+    public QueryParameterDto mountFindPersonDtoById(Long personId) {
+        return applyFilterPersonId(personId, QUERY_ONE_PERSON_BY_ID);
+    }
+
+    public QueryParameterDto mountFindPersonDto(Long personId, Long customerId) {
+        return applyFiltersPerson(personId, customerId, QUERY_ONE_PERSON_BY_ID_AND_CUSTOMER_ID);
     }
 
     public QueryParameterDto mountFindPersonDtos(PageRequest pageRequest) {
@@ -22,8 +26,6 @@ public class QueryParameterMountPersonService extends QueryParameterMountAbstrac
     public QueryParameterDto mountFindTotalPersonDtos() {
         return applyQuery(QUERY_COUNT_ALL_PERSONS);
     }
-
-
 
     public QueryParameterDto saveOne(PersonDto personDto) {
         return applyFilterPersoDto(personDto, QUERY_SAVE_ONE_PERSON);

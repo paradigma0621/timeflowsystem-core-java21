@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.paradigma0621.core.repository.commons.SQLFields.*;
+import static java.util.Objects.nonNull;
 
 @Repository
 public class PersonRepositoryImpl implements PersonRepository {
@@ -22,7 +23,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
-    public Optional<PersonDto> findPersonNameById(QueryParameterDto queryParameterDto) {
+    public Optional<PersonDto> findById(QueryParameterDto queryParameterDto) {
         return namedParameterJdbcTemplate.query(queryParameterDto.sql(), queryParameterDto.parameter(), result -> {
             if (result.next()) {
                 var personDto = new PersonDto(
@@ -30,9 +31,12 @@ public class PersonRepositoryImpl implements PersonRepository {
                         result.getString(NAME),
                         result.getTimestamp(REGISTER_DATE).toLocalDateTime(),
                         result.getString(ENROLLMENT),
-                        result.getLong(PROFILE_ID),
                         result.getLong(CUSTOMER_ID),
-                        result.getBoolean(REMOVED)
+                        result.getLong(PROFILE_ID),
+                        result.getBoolean(REMOVED),
+                        nonNull(result.getDate(BIRTH_DATE)) ? result.getDate(BIRTH_DATE).toLocalDate() : null,
+                        nonNull(result.getTimestamp(DELETION_DATE)) ?
+                                    result.getTimestamp(DELETION_DATE).toLocalDateTime() : null
                 );
 
                 return Optional.of(personDto);
@@ -51,7 +55,10 @@ public class PersonRepositoryImpl implements PersonRepository {
                         result.getString(ENROLLMENT),
                         result.getLong(PROFILE_ID),
                         result.getLong(CUSTOMER_ID),
-                        result.getBoolean(REMOVED)
+                        result.getBoolean(REMOVED),
+                        nonNull(result.getDate(BIRTH_DATE)) ? result.getDate(BIRTH_DATE).toLocalDate() : null,
+                        nonNull(result.getTimestamp(DELETION_DATE)) ?
+                                result.getTimestamp(DELETION_DATE).toLocalDateTime() : null
                    )
             )
         );

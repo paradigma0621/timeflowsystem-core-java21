@@ -27,9 +27,15 @@ public class PersonService {
     }
 
     public PersonDto findById(Long personId) {
-        var queryParameter = queryParameterMountPersonService.mountFindPersonDto(personId);
-        return personRepository.findPersonNameById(queryParameter)
-                .orElse(new PersonDto(0L, "No one with this id", null, "0",0L,0L,false));
+        var queryParameter = queryParameterMountPersonService.mountFindPersonDtoById(personId);
+        return personRepository.findById(queryParameter)
+                .orElse(new PersonDto(0L, "No person found for the given personId", null, "0", 0L, 0L, false, null, null));
+    }
+
+    public PersonDto findBy(Long personId, Long customerId) {
+        var queryParameter = queryParameterMountPersonService.mountFindPersonDto(personId, customerId);
+        return personRepository.findById(queryParameter)
+                .orElse(new PersonDto(0L, "No person found for the given personId and customerId", null, "0", 0L, 0L, false, null, null));
     }
 
     public Page<PersonDto> findAll(Pageable pageable) {

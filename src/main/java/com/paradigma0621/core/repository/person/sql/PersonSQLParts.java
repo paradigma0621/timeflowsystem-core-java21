@@ -4,12 +4,20 @@ public class PersonSQLParts {
 
     private PersonSQLParts() {}
 
-    public static final String QUERY_ONE_PERSON = """
-            SELECT id, name, enrollment, profile_id, customer_id, register_date, removed FROM person where id = :id
+    public static final String QUERY_ONE_PERSON_BY_ID = """
+            SELECT id, name, enrollment, profile_id, customer_id, register_date, removed, birth_date, deletion_date
+            FROM person WHERE id = :id
+            """;
+
+    public static final String QUERY_ONE_PERSON_BY_ID_AND_CUSTOMER_ID = """
+            SELECT id, name, enrollment, profile_id, customer_id, register_date, removed, birth_date, deletion_date
+            FROM person
+            WHERE id = :id AND customer_id = :customer_id
             """;
 
     public static final String QUERY_ALL_PERSONS = """
-            SELECT id, name, enrollment, profile_id, customer_id, register_date, removed FROM person
+            SELECT id, name, enrollment, profile_id, customer_id, register_date, removed, birth_date, deletion_date
+            FROM person
             """;
 
     public static final String QUERY_COUNT_ALL_PERSONS = """

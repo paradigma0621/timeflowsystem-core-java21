@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import static java.time.LocalDateTime.now;
@@ -32,30 +33,36 @@ class PersonServiceTest {
 
     @Test
     void testGetExistentPerson() {
-        Long personId = 1L;
-        var expected = new PersonDto(personId, "Oswaldo", now(), "1AB23", 1L, 1L, false);
-        when(queryParameterMountPersonService.mountFindPersonDto(anyLong())).thenReturn(new QueryParameterDto("sql", null));
-        when(personRepository.findPersonNameById(any())).thenReturn(Optional.of(expected));
+        var personId = 1L;
+        var customerId = 12L;
+        var expected = new PersonDto(personId, "Oswaldo", now(), "1AB23", 1L, 1L, false, LocalDate.now(), now());
+        when(queryParameterMountPersonService.mountFindPersonDto(anyLong(), anyLong()))
+                .thenReturn(new QueryParameterDto("sql", null));
+        when(personRepository.findById(any())).thenReturn(Optional.of(expected));
 
-        var actual = service.findById(personId);
+        var actual = service.findBy(personId, customerId);
 
         assertEquals(expected, actual);
-        verify(queryParameterMountPersonService, times(1)).mountFindPersonDto(anyLong());
-        verify(personRepository, times(1)).findPersonNameById(any());
+        verify(queryParameterMountPersonService, times(1)).mountFindPersonDto(anyLong(),
+                                                                                                      anyLong());
+        verify(personRepository, times(1)).findById(any());
     }
 
     @Test
     void testGetNonExistentPerson() {
-        Long nonExistentPersonId = 9999L;
-        var expected = new PersonDto(0L, "No one with this id", null, "0", 0L, 0L, false);
-        when(queryParameterMountPersonService.mountFindPersonDto(anyLong())).thenReturn(new QueryParameterDto("sql", null));
-        when(personRepository.findPersonNameById(any())).thenReturn(Optional.empty());
+        var nonExistentPersonId = 9999L;
+        var customerId = 1L;
+        var expected = new PersonDto(0L, "No person found for the given personId and customerId",
+                            null, "0", 0L, 0L, false, null, null);
+        when(queryParameterMountPersonService.mountFindPersonDto(anyLong(), anyLong()))
+                .thenReturn(new QueryParameterDto("sql", null));
+        when(personRepository.findById(any())).thenReturn(Optional.empty());
 
-        var actual = service.findById(nonExistentPersonId);
+        var actual = service.findBy(nonExistentPersonId, customerId);
 
         assertEquals(expected, actual);
-        verify(queryParameterMountPersonService, times(1)).mountFindPersonDto(anyLong());
-        verify(personRepository, times(1)).findPersonNameById(any());
+        verify(queryParameterMountPersonService, times(1)).mountFindPersonDto(anyLong(), anyLong());
+        verify(personRepository, times(1)).findById(any());
     }
 
 }

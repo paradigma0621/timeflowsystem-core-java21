@@ -3,7 +3,6 @@ package com.paradigma0621.core.exception.handler;
 import com.paradigma0621.core.dto.ResponseDto;
 import com.paradigma0621.core.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

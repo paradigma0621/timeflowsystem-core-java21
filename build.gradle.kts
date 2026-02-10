@@ -24,15 +24,21 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.data:spring-data-commons")
+
 	runtimeOnly("com.mysql:mysql-connector-j")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
-	testImplementation("org.mockito:mockito-core")
 	testImplementation("org.mockito:mockito-junit-jupiter")
-	implementation("org.springframework.data:spring-data-commons")
+	testImplementation("org.springframework.boot:spring-boot-starter-webflux")
+
 	compileOnly("org.projectlombok:lombok:1.18.32")
 	annotationProcessor("org.projectlombok:lombok:1.18.32")
+}
+
+tasks.test {
+	useJUnitPlatform()
 }
 
 tasks.withType<Test> {

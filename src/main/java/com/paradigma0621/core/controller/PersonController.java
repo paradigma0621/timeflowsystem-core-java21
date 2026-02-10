@@ -33,9 +33,14 @@ public class PersonController {
         return "hello, " + personName + "!!";
     }
 
-    @GetMapping(value = "/jdbc/{personId}")
-    public PersonDto getJdbcPersonName(@PathVariable(name="personId") Long personId) {
+    @GetMapping(value = "/{personId}")
+    public PersonDto getPersonDtoById(@PathVariable Long personId) {
         return personService.findById(personId);
+    }
+
+    @GetMapping(value = "/{personId}/by-customer")
+    public PersonDto getPersonDto(@PathVariable Long personId, @RequestParam Long customerId) {
+        return personService.findBy(personId, customerId);
     }
 
     @GetMapping(value = "/all")
@@ -77,5 +82,4 @@ public class PersonController {
 
         return ResponseEntity.ok(response);
     }
-
 }

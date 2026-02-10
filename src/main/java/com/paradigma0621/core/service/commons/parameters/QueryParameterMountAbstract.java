@@ -19,6 +19,13 @@ public abstract class QueryParameterMountAbstract {
         return new QueryParameterDto(sql, parameter);
     }
 
+    protected QueryParameterDto applyFiltersPerson(Long personId, Long customerId, String sql) {
+        var parameter = new MapSqlParameterSource()
+                .addValue(ID, personId, Types.INTEGER)
+                .addValue(CUSTOMER_ID, customerId, Types.INTEGER);
+        return new QueryParameterDto(sql, parameter);
+    }
+
     protected QueryParameterDto applyQuery(String sql, PageRequest pageRequest) {
         sql += returnOrderAndLimit(pageRequest);
         return new QueryParameterDto(sql, null);

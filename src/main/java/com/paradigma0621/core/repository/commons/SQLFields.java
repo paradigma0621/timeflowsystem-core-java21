@@ -12,6 +12,8 @@ public class SQLFields {
     public static final String CUSTOMER_ID = "customer_id";
     public static final String REGISTER_DATE = "register_date";
     public static final String REMOVED = "removed";
+    public static final String BIRTH_DATE = "birth_date";
+    public static final String DELETION_DATE = "deletion_date";
 
     public static final String SECONDS_DURATION = "seconds_duration";
     public static final String GRADE = "grade";
