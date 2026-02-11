@@ -3,6 +3,7 @@ package com.paradigma0621.core.service.person;
 import com.paradigma0621.core.dto.PersonDto;
 import com.paradigma0621.core.repository.person.PersonRepository;
 import com.paradigma0621.core.service.commons.parameters.QueryParameterMountPersonService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -13,18 +14,13 @@ import java.util.Collections;
 
 import static com.paradigma0621.core.util.Utils.returnPageable;
 
+@RequiredArgsConstructor
 @Service
 public class PersonService {
 
     private final PersonRepository personRepository;
     private final QueryParameterMountPersonService queryParameterMountPersonService;
     private final PersonTotalService personTotalService;
-
-    public PersonService(PersonRepository personRepository, QueryParameterMountPersonService queryParameterMountPersonService) {
-        this.personRepository = personRepository;
-        this.queryParameterMountPersonService = queryParameterMountPersonService;
-        this.personTotalService = new PersonTotalService(personRepository, queryParameterMountPersonService);
-    }
 
     public PersonDto findById(Long personId) {
         var queryParameter = queryParameterMountPersonService.mountFindPersonDtoById(personId);

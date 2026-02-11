@@ -3,9 +3,10 @@ package com.paradigma0621.core.service.clocking;
 import com.paradigma0621.core.dto.ClockingDto;
 import com.paradigma0621.core.repository.clocking.ClockingRepository;
 import com.paradigma0621.core.service.commons.parameters.QueryParameterMountClockingService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
+@RequiredArgsConstructor
 @Service
 public class ClockingService {
 
@@ -13,11 +14,6 @@ public class ClockingService {
     private final QueryParameterMountClockingService queryParameterMountClockingService;
     ///private final ClockingTotalService personTotalService;
 
-    public ClockingService(ClockingRepository clockingRepository, QueryParameterMountClockingService queryParameterMountClockingService) {
-        this.clockingRepository = clockingRepository;
-        this.queryParameterMountClockingService = queryParameterMountClockingService;
-       // this.personTotalService = new ClockingTotalService(personRepository, queryParameterMountPersonService);
-    }
 /*
     public PersonDto findById(Long personId) {
         var queryParameter = queryParameterMountPersonService.mountFindPersonDto(personId);

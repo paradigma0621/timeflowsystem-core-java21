@@ -5,21 +5,19 @@ import com.paradigma0621.core.dto.ResponseDto;
 import com.paradigma0621.core.exception.BusinessException;
 import com.paradigma0621.core.service.person.PersonService;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
 
     private final PersonService personService;
-
-    public PersonController(PersonService personService) {
-        this.personService = personService;
-    }
 
     @GetMapping(value = "/test")
     public String creating() {

@@ -3,17 +3,16 @@ package com.paradigma0621.core.repository.clocking.impl;
 
 import com.paradigma0621.core.dto.QueryParameterDto;
 import com.paradigma0621.core.repository.clocking.ClockingRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+@RequiredArgsConstructor
 @Repository
 public class ClockingRepositoryImpl implements ClockingRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public ClockingRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
 /*
     @Override
     public Optional<PersonDto> findPersonNameById(QueryParameterDto queryParameterDto) {
