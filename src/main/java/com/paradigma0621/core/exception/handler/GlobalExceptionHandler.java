@@ -21,10 +21,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ResponseDto> businessExceptionHandler(BusinessException ex) {
+    public ResponseEntity<ResponseDto<Void>> businessExceptionHandler(BusinessException ex) {
         log.error("BusinessException in handler: ", ex);
 
-        ResponseDto<Object> response = new ResponseDto<>(
+        ResponseDto<Void> response = new ResponseDto<>(
                 400L,
                 "Error in global exception handler: " + ex.getMessage(),
                 null,

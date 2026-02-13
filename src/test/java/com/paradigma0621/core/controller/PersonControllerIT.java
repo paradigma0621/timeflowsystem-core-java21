@@ -1,6 +1,6 @@
 package com.paradigma0621.core.controller;
 
-import helper.TestIntegrationHelper;
+import com.paradigma0621.core.helper.TestIntegrationHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;

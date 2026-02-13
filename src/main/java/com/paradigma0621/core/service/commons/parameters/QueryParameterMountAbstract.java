@@ -43,7 +43,9 @@ public abstract class QueryParameterMountAbstract {
                 .addValue(ENROLLMENT, personDto.enrollment(), Types.VARCHAR)
                 .addValue(PROFILE_ID, personDto.profileId(), Types.INTEGER)
                 .addValue(CUSTOMER_ID, personDto.customerId(), Types.INTEGER)
-                .addValue(REMOVED, personDto.removed(), Types.BOOLEAN);
+                .addValue(REMOVED, personDto.removed(), Types.BOOLEAN)
+                .addValue(BIRTH_DATE, personDto.birthDate(), Types.DATE)
+                .addValue(DELETION_DATE, personDto.deletionDate(), Types.TIMESTAMP);
 
         return new QueryParameterDto(sql, parameter);
     }

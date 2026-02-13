@@ -25,8 +25,8 @@ public class PersonSQLParts {
             """;
 
     public static final String QUERY_SAVE_ONE_PERSON = """
-            INSERT INTO person (name, register_date, enrollment, profile_id, customer_id, removed) 
-            VALUES (:name, :register_date, :enrollment, :profile_id, :customer_id, :removed)
+            INSERT INTO person (name, register_date, enrollment, profile_id, customer_id, removed, birth_date, deletion_date) 
+            VALUES (:name, :register_date, :enrollment, :profile_id, :customer_id, :removed, :birth_date, :deletion_date)
             """;
 
 

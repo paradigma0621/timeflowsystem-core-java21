@@ -4,7 +4,11 @@ import com.paradigma0621.core.dto.ClockingDto;
 import com.paradigma0621.core.repository.clocking.ClockingRepository;
 import com.paradigma0621.core.service.commons.parameters.QueryParameterMountClockingService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
@@ -12,23 +16,22 @@ public class ClockingService {
 
     private final ClockingRepository clockingRepository;
     private final QueryParameterMountClockingService queryParameterMountClockingService;
-    ///private final ClockingTotalService personTotalService;
 
-/*
-    public PersonDto findById(Long personId) {
-        var queryParameter = queryParameterMountPersonService.mountFindPersonDto(personId);
-        return personRepository.findPersonNameById(queryParameter)
-                .orElse(new PersonDto(0L, "No one with this id", null, "0",0L,0L,false));
+    public Page<ClockingDto> findAll(
+            Long personId,
+            Boolean removed,
+            LocalDateTime startFrom,
+            LocalDateTime startTo,
+            String subjectLike,
+            Pageable pageable
+    ) {
+        var queryParameter = queryParameterMountClockingService.findAll(
+                personId, removed, startFrom, startTo, subjectLike
+        );
+
+        return clockingRepository.findAll(queryParameter, pageable);
     }
 
-    public Page<PersonDto> findAll(Pageable pageable) {
-        PageRequest pageRequest = returnPageable(pageable);
-        var queryParameter = queryParameterMountPersonService.mountFindPersonDtos(pageRequest);
-        var personDtos = personRepository.findAll(queryParameter).orElse(Collections.emptyList());
-        var count = personTotalService.findTotalPersons();
-        return new PageImpl<>(personDtos, pageRequest, count);
-    }
-*/
     public void saveOne(ClockingDto clockingDto) {
         var queryParameter = queryParameterMountClockingService.saveOne(clockingDto);
         clockingRepository.saveOne(queryParameter);

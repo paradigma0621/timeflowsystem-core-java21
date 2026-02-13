@@ -1,4 +1,4 @@
-package helper;
+package com.paradigma0621.core.helper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;

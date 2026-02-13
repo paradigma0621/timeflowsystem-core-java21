@@ -1,10 +1,11 @@
 package com.paradigma0621.core.repository.clocking;
 
+import com.paradigma0621.core.dto.ClockingDto;
 import com.paradigma0621.core.dto.QueryParameterDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ClockingRepository {
-    /*Optional<PersonDto> findPersonNameById(QueryParameterDto queryParameterDto);
-    Optional<List<PersonDto>> findAll(QueryParameterDto queryParameterDto);
-    Optional<Long> findTotalPerson(QueryParameterDto queryParameterDto);*/
+    Page<ClockingDto> findAll(QueryParameterDto queryParameterDto, Pageable pageable);
     void saveOne(QueryParameterDto queryParameterDto);
 }
