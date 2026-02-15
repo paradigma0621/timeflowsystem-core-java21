@@ -8,8 +8,10 @@ Checkout these specific commit hashes to ensure the repositories work in paralle
      
 ### Backend
      [Core](https://github.com/paradigma0621/timeflowsystem-core-java21)
+     [Report](https://github.com/paradigma0621/timeflowsystem-report-java21)
      [Security](https://github.com/paradigma0621/timeflowsystem-security-java21)
-
+     [Eureka](https://github.com/paradigma0621/timeflowsystem-security-java21)
+     
 ## Documentation
      [NOTES About Spring Security (in Portuguese)](https://github.com/paradigma0621/notasDeCursos/blob/master/Udemy/SpringSecurity/notas-security.org)
      
@@ -17,13 +19,19 @@ Checkout these specific commit hashes to ensure the repositories work in paralle
 
 The tables below show the valid pairing dates, the commit hash of each repository, and their descriptions."
 
-### Achievement of the Goal 1 (Authorization and Authentication using cookies)
+### PHASE 4 - Eureka connection
+
+| Date       | Security  | Frontend |  Eureka | Core    | Report  | Description                                 |
+|------------| --------  | -------- | ------- | ------- | ------- | ------------------------------------------- |
+| 2026-02-14 |           | 6e10164  | c92f6c3 |         |         | Added Eureka and Report microsservices.     | 
+
+### PHASE 3 - Achievement of the Goal 1 (Authorization and Authentication using cookies)
 
 | Date       | Security  | Frontend |  Core   | Description                                                                         |
 | ---------- | --------  | -------- | ------- | ----------------------------------------------------------------------------------- |
 | 2025-01-17 | 447686f   | bd4df09  | ecc2f8e | The goal of implementing authorization and authentication **using cookies** has     |
-|	        |           |          |         |	been successfully achieved endpoint from the security module (in via page "Users  |
-|	        |           |          |         |	Passswords" by aligning the following components to their respective              |
+|	     |           |          |         |	been successfully achieved endpoint from the security module (in via page "Users    |
+|	     |           |          |         |	Passswords" by aligning the following components to their respective                |
 
 
 ### PHASE 2 - (Security + Core (backend)) + Integration with frontend (React)

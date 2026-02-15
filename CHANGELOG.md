@@ -1,6 +1,11 @@
 # Changelog
+## 2026-02-14
+### Commit (Associated with Eureka microservice)
+- Configure as Eureka client
+- Runs on a random port
+- 
 ## 2026-02-10
-### Commit (Add WebFlux-based integration test support and examples)
+### Commit 3df5889 (Add WebFlux-based integration test support and examples)
 
 ## 2025-08-02
 ### Commit 37be8db (Add Lombok, GlobalExceptionHandler and ResponseDto)

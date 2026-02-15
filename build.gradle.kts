@@ -12,7 +12,7 @@ java {
 	sourceCompatibility = JavaVersion.VERSION_21
 }
 
-extra["mockitoVersion"] = "4.2.0"
+extra["springCloudVersion"] = "2023.0.6" // Spring Cloud Leyton (Boot 3.3.x)
 
 repositories {
 	mavenCentral()
@@ -20,11 +20,20 @@ repositories {
 	maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.data:spring-data-commons")
+
+	// ✅ Eureka Client
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 
 	runtimeOnly("com.mysql:mysql-connector-j")
 
@@ -35,12 +44,4 @@ dependencies {
 
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
-}
-
-tasks.test {
-	useJUnitPlatform()
-}
-
-tasks.withType<Test> {
-	useJUnitPlatform()
 }
