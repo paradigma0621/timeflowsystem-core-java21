@@ -45,7 +45,7 @@ public class ClockingRepositoryImpl implements ClockingRepository {
                             ));
 
 
-        Long total = namedParameterJdbcTemplate.queryForObject(countSql, queryParameterDto.parameter(), Long.class);
+        var total = namedParameterJdbcTemplate.queryForObject(countSql, queryParameterDto.parameter(), Long.class);
         if (total == null) total = 0L;
         return new PageImpl<>(clockingDtos, pageable, total);
     }

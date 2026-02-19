@@ -24,7 +24,7 @@ The tables below show the valid pairing dates, the commit hash of each repositor
 
 | Date       | Security  | Frontend |  Eureka | Core    | Report  | Gateway  | Description                      |
 |------------| --------  | -------- | ------- | ------- | ------- | -------- | -------------------------------- |
-| 2026-02-18 |           | 6e10164  | 4834db3 |         |         | 29e32f4  | Added Gateway microsservices.    | 
+| 2026-02-18 |           | 6e10164  | 4834db3 | 35a6ab1 | 6e0e61c | 29e32f4  | Added Gateway microsservices.    | 
 
 
 ### PHASE 4 - Eureka connection

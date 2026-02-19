@@ -6,7 +6,6 @@ import com.paradigma0621.core.service.commons.parameters.QueryParameterMountPers
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +34,7 @@ public class PersonService {
     }
 
     public Page<PersonDto> findAll(Pageable pageable) {
-        PageRequest pageRequest = returnPageable(pageable);
+        var pageRequest = returnPageable(pageable);
         var queryParameter = queryParameterMountPersonService.mountFindPersonDtos(pageRequest);
         var personDtos = personRepository.findAll(queryParameter).orElse(Collections.emptyList());
         var count = personTotalService.findTotalPersons();

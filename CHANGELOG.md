@@ -1,6 +1,6 @@
 # Changelog
 ## 2026-02-19
-### Commit  (Associated with Gateway microservice)
+### Commit 35a6ab1 (Associated with Gateway microservice)
 - Configure as Gateway client
 - Add `runMicroserviceInstance.sh` script to allow running multiple instances of this microservice simultaneously.
 
