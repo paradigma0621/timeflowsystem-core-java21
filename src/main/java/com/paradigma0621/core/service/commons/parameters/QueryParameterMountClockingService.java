@@ -22,8 +22,7 @@ public class QueryParameterMountClockingService extends QueryParameterMountAbstr
             String subjectLike
     ) {
 
-        StringBuilder sql = new StringBuilder()
-                                    .append(QUERY_MAIN_FIND_ALL_CLOCKING);
+        StringBuilder sql = new StringBuilder().append(QUERY_MAIN_FIND_ALL_CLOCKING);
 
         MapSqlParameterSource params = new MapSqlParameterSource();
 

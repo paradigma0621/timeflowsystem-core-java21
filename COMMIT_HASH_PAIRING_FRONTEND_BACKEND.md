@@ -4,26 +4,34 @@
 Checkout these specific commit hashes to ensure the repositories work in parallel.
 
 ### Frontend
-     [Frontend](https://github.com/paradigma0621/timeflowsystem-react-app)
+[Frontend](https://github.com/paradigma0621/timeflowsystem-react-app)
      
 ### Backend
-     [Core](https://github.com/paradigma0621/timeflowsystem-core-java21)
-     [Report](https://github.com/paradigma0621/timeflowsystem-report-java21)
-     [Security](https://github.com/paradigma0621/timeflowsystem-security-java21)
-     [Eureka](https://github.com/paradigma0621/timeflowsystem-security-java21)
+ [Core](https://github.com/paradigma0621/timeflowsystem-core-java21) <br>
+ [Report](https://github.com/paradigma0621/timeflowsystem-report-java21) <br>
+ [Security](https://github.com/paradigma0621/timeflowsystem-security-java21) <br>
+ [Eureka](https://github.com/paradigma0621/timeflowsystem-security-java21) <br>
+ [Gateway](https://github.com/paradigma0621/timeflowsystem-gateway-java17) <br>
      
 ## Documentation
-     [NOTES About Spring Security (in Portuguese)](https://github.com/paradigma0621/notasDeCursos/blob/master/Udemy/SpringSecurity/notas-security.org)
+[NOTES About Spring Security (in Portuguese)](https://github.com/paradigma0621/notasDeCursos/blob/master/Udemy/SpringSecurity/notas-security.org) <br>
      
 ## Progress
 
 The tables below show the valid pairing dates, the commit hash of each repository, and their descriptions."
 
+### PHASE 5 - Gateway connection
+
+| Date       | Security  | Frontend |  Eureka | Core    | Report  | Gateway  | Description                      |
+|------------| --------  | -------- | ------- | ------- | ------- | -------- | -------------------------------- |
+| 2026-02-18 |           | 6e10164  | 4834db3 |         |         | 29e32f4  | Added Gateway microsservices.    | 
+
+
 ### PHASE 4 - Eureka connection
 
 | Date       | Security  | Frontend |  Eureka | Core    | Report  | Description                                 |
 |------------| --------  | -------- | ------- | ------- | ------- | ------------------------------------------- |
-| 2026-02-14 |           | 6e10164  | c92f6c3 |         |         | Added Eureka and Report microsservices.     | 
+| 2026-02-14 |           | 6e10164  | c92f6c3 | c76e414 | 0b0388d | Added Eureka and Report microsservices.     | 
 
 ### PHASE 3 - Achievement of the Goal 1 (Authorization and Authentication using cookies)
 

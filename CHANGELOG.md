@@ -1,6 +1,11 @@
 # Changelog
+## 2026-02-19
+### Commit  (Associated with Gateway microservice)
+- Configure as Gateway client
+- Add `runMicroserviceInstance.sh` script to allow running multiple instances of this microservice simultaneously.
+
 ## 2026-02-14
-### Commit (Associated with Eureka microservice)
+### Commit 017913e (Associated with Eureka microservice)
 - Configure as Eureka client
 - Runs on a random port
 - 

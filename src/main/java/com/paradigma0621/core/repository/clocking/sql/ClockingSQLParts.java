@@ -24,6 +24,5 @@ public class ClockingSQLParts {
                 person_id,
                 removed
             FROM clocking
-            WHERE 1=1
-            """;
+            WHERE 1=1""";
 }
