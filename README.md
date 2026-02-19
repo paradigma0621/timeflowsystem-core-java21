@@ -8,10 +8,17 @@ Microservice using Java 21 and Spring Boot 3.3.0
 [Report](https://github.com/paradigma0621/timeflowsystem-report-java21) <br>
 [Eureka](https://github.com/paradigma0621/timeflowsystem-eureka-java17) <br>
 [Gateway](https://github.com/paradigma0621/timeflowsystem-gateway-java17) <br>
+[API](https://github.com/paradigma0621/timeflowsystem-api-java17) <br>
 
 ## Frontend
 To be accessed by the  "Timeflow Frontend" [React 18.3 App project](https://github.com/paradigma0621/timeflowsystem-react-app)
 
 ## Log
+2026-02-19 - Introduced syncronous and assynchronous messaging
 2026-02-10 - Added WebFlux-based integration test support and examples 
 2024-05-18 - Started project communicating with frontend react app project
+
+## RabbitMQ
+### Instalation
+Run: `docker run -it --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management` <br>
+Access: `http://localhost:15672/`   (user: guest, password: guest)

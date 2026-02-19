@@ -12,6 +12,7 @@ Checkout these specific commit hashes to ensure the repositories work in paralle
  [Security](https://github.com/paradigma0621/timeflowsystem-security-java21) <br>
  [Eureka](https://github.com/paradigma0621/timeflowsystem-security-java21) <br>
  [Gateway](https://github.com/paradigma0621/timeflowsystem-gateway-java17) <br>
+ [API](https://github.com/paradigma0621/timeflowsystem-api-java17) <br>
      
 ## Documentation
 [NOTES About Spring Security (in Portuguese)](https://github.com/paradigma0621/notasDeCursos/blob/master/Udemy/SpringSecurity/notas-security.org) <br>
@@ -19,6 +20,19 @@ Checkout these specific commit hashes to ensure the repositories work in paralle
 ## Progress
 
 The tables below show the valid pairing dates, the commit hash of each repository, and their descriptions."
+
+### PHASE 7 - Messaging Communication
+#### PHASE 7.1 - RabbitMQ
+Description: Introduce RabbitMQ-based messaging communication in the Core microservice.
+Related Core commits:
+
+### PHASE 6 - Communication Between Microservices Using Feign
+Description: Add API microservices with Feign-based communication <br>
+
+| Date       | Security  | Frontend |  Eureka | Core    | Report  | Gateway |   API   |
+|------------| --------  | -------- | ------- | ------- | ------- | ------- | ------- |
+| 2026-02-19 |           | 6e10164  | 4834db3 | 268520e | fefb350 | 4fe2b24 | 3398bbb |
+
 
 ### PHASE 5 - Gateway connection
 
