@@ -19,15 +19,10 @@ public class PersonCommon {
     public static final String RESPONSE_NO_PERSON_FOUND =
             """
             {
-                "id": 0,
-                "name": "No person found for the given personId and customerId",
-                "registerDate": null,
-                "enrollment": "0",
-                "customerId": 0,
-                "profileId": 0,
-                "removed": false,
-                "birthDate": null,
-                "deletionDate": null
+              "title": "Not found resource",
+              "status": 404,
+              "detail": "Person not found",
+              "code": 404
             }
             """;
 }

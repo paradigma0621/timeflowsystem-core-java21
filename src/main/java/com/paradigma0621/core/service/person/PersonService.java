@@ -3,6 +3,7 @@ package com.paradigma0621.core.service.person;
 import com.paradigma0621.core.dto.PersonDto;
 import com.paradigma0621.core.repository.person.PersonRepository;
 import com.paradigma0621.core.service.commons.parameters.QueryParameterMountPersonService;
+import com.paradigma0621.core.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -30,7 +31,7 @@ public class PersonService {
     public PersonDto findBy(Long personId, Long customerId) {
         var queryParameter = queryParameterMountPersonService.mountFindPersonDto(personId, customerId);
         return personRepository.findById(queryParameter)
-                .orElse(new PersonDto(0L, "No person found for the given personId and customerId", null, "0", 0L, 0L, false, null, null));
+                .orElseThrow(() -> new ResourceNotFoundException("Person not found"));
     }
 
     public Page<PersonDto> findAll(Pageable pageable) {

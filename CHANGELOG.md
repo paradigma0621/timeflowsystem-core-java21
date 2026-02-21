@@ -1,6 +1,6 @@
 # Changelog
 ## 2026-02-19
-### Commit  (Introduce RabbitMQ-based messaging communication in the Core microservice)
+### Commit db402e9 (Introduce RabbitMQ-based messaging communication in the Core microservice)
 - Basic configuration and queue implementation test
 ### Commit 35a6ab1 (Associated with Gateway microservice)
 - Configure as Gateway client

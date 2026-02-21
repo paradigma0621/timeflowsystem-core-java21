@@ -2,6 +2,7 @@ package com.paradigma0621.core.service;
 
 import com.paradigma0621.core.dto.PersonDto;
 import com.paradigma0621.core.dto.QueryParameterDto;
+import com.paradigma0621.core.exception.ResourceNotFoundException;
 import com.paradigma0621.core.repository.person.PersonRepository;
 import com.paradigma0621.core.service.person.PersonService;
 import com.paradigma0621.core.service.commons.parameters.QueryParameterMountPersonService;
@@ -32,7 +33,7 @@ class PersonServiceTest {
     PersonService service;
 
     @Test
-    void testGetExistentPerson() {
+    void deveRetornarPersonComSucessoQuandoOMesmoEEncontrado() {
         var personId = 1L;
         var customerId = 12L;
         var expected = new PersonDto(personId, "Oswaldo", now(), "1AB23", 1L, 1L, false, LocalDate.now(), now());
@@ -49,18 +50,17 @@ class PersonServiceTest {
     }
 
     @Test
-    void testGetNonExistentPerson() {
+    void deveLancarExcecaoDePersonNaoEncontradoComStatus404() {
         var nonExistentPersonId = 9999L;
         var customerId = 1L;
-        var expected = new PersonDto(0L, "No person found for the given personId and customerId",
-                            null, "0", 0L, 0L, false, null, null);
+
         when(queryParameterMountPersonService.mountFindPersonDto(anyLong(), anyLong()))
                 .thenReturn(new QueryParameterDto("sql", null));
         when(personRepository.findById(any())).thenReturn(Optional.empty());
 
-        var actual = service.findBy(nonExistentPersonId, customerId);
-
-        assertEquals(expected, actual);
+        var ex = assertThrows(ResourceNotFoundException.class,
+                () -> service.findBy(nonExistentPersonId, customerId));
+        assertEquals("Person not found", ex.getMessage());
         verify(queryParameterMountPersonService, times(1)).mountFindPersonDto(anyLong(), anyLong());
         verify(personRepository, times(1)).findById(any());
     }

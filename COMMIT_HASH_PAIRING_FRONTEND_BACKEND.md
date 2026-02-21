@@ -22,9 +22,14 @@ Checkout these specific commit hashes to ensure the repositories work in paralle
 The tables below show the valid pairing dates, the commit hash of each repository, and their descriptions."
 
 ### PHASE 7 - Messaging Communication
-#### PHASE 7.1 - RabbitMQ
+#### PHASE 7.1 - RabbitMQ (Microservice Core)
 Description: Introduce RabbitMQ-based messaging communication in the Core microservice.
-Related Core commits:
+Related Core commits (2026-02-19):
+- db402e9
+#### PHASE 7.2 - RabbitMQ (Microservice Report)
+Description: Introduce RabbitMQ-based messaging communication in the Report microservice.
+Related Report commits (2026-02-20):
+- 060ee74
 
 ### PHASE 6 - Communication Between Microservices Using Feign
 Description: Add API microservices with Feign-based communication <br>
